@@ -1,16 +1,10 @@
 // All code should be written in this file.
-let playerOneMoveOneType = undefined;
-let playerOneMoveTwoType = undefined;
-let playerOneMoveThreeType = undefined;
-let playerTwoMoveOneType = undefined;
-let playerTwoMoveTwoType = undefined;
-let playerTwoMoveThreeType = undefined;
-let playerOneMoveOneValue = undefined;
-let playerOneMoveTwoValue = undefined;
-let playerOneMoveThreeValue = undefined;
-let playerTwoMoveOneValue = undefined;
-let playerTwoMoveTwoValue = undefined;
-let playerTwoMoveThreeValue = undefined;
+let playerOneMoveOneType, playerOneMoveOneValue,
+    playerOneMoveTwoType, playerOneMoveTwoValue,
+    playerOneMoveThreeType, playerOneMoveThreeValue,
+    playerTwoMoveOneType, playerTwoMoveOneValue,
+    playerTwoMoveTwoType, playerTwoMoveTwoValue,
+    playerTwoMoveThreeType, playerTwoMoveThreeValue;
 
 const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoValue, moveThreeType, moveThreeValue) => {
     if (isValidType(moveOneType) && isValidType(moveTwoType) && isValidType(moveThreeType)
@@ -37,7 +31,60 @@ const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoV
     }
 }
 
+const getRoundWinner = (roundNumber) => {
+    switch (roundNumber) {
+        case 1:
+            return getMoveWinner(playerOneMoveOneType, playerOneMoveOneValue, playerTwoMoveOneType, playerTwoMoveOneValue);
+            break;
+        case 2:
+            return getMoveWinner(playerOneMoveTwoType, playerOneMoveTwoValue, playerTwoMoveTwoType, playerTwoMoveTwoValue);
+            break;
+        case 3:
+            return getMoveWinner(playerOneMoveThreeType, playerOneMoveThreeValue, playerTwoMoveThreeType, playerTwoMoveThreeValue);
+            break;
+        default:
+            return null;
+    }
+}
 
+const getMoveWinner = (playerOneMoveType, playerOneMoveValue, playerTwoMoveType, playerTwoMoveValue) => {
+
+    if (!playerOneMoveType || !playerOneMoveValue || !playerTwoMoveType || !playerTwoMoveValue) {
+        return null;
+    }
+
+    //If playerOne's move type is equal to playerTwo's move type then check player's move values
+    if(playerOneMoveType === playerTwoMoveType){
+        if (playerOneMoveValue > playerTwoMoveValue) {
+            return 'Player One';
+        } else if (playerTwoMoveValue > playerOneMoveValue) {
+            return 'Player Two';
+        } else {
+            return 'Tie';
+        }
+    }
+
+    if(playerOneMoveType === 'rock' && playerTwoMoveType === 'scissors'){
+        return 'Player One';
+    }else{
+        return 'Player Two';
+    }
+
+    if(playerOneMoveType === 'paper' && playerTwoMoveType === 'rock'){
+        return 'Player One';
+    }else{
+        return 'Player Two';
+    }
+
+    if(playerOneMoveType === 'scissors' && playerTwoMoveType === 'paper'){
+        return 'Player One';
+    }else{
+        return 'Player Two';
+    }
+}
+
+
+//Helper functions
 const isValidType = moveType => {
     if (moveType === 'rock' || moveType === 'paper' || moveType === 'scissors') {
         return true;
@@ -52,4 +99,8 @@ const isValidValue = moveValue => {
     } else {
         return false;
     }
+}
+
+const getGameWinner = () => {
+
 }
