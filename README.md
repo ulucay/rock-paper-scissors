@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-In this project, you will build all of the logic needed for a more intense version of
+In this project, I build all of the logic needed for a more intense version of
 Rock Paper Scissors (RPS). Rather than selecting just one of Rock, Paper, or Scissors - each player
 will select three moves. Each move will consist of a type (Rock, Paper, or Scissors) as well
 as a strength value. Each player will have 99 total points to use as strength between all
@@ -20,16 +20,10 @@ equal, then a tie is declared.
 
 The player that wins the majority of the three rounds will be the winner of the game.
 
-To demo all of this functionality, try out a final version of this project, located <a href="https://s3.amazonaws.com/codecademy-content/programs/build-apis/projects/build-apis-project-1-rock-paper-scissors-x99/project/index.html" target="_blank">here</a>.
-
-## How To Begin
-
-To start, download the starting code for this project <a href="https://s3.amazonaws.com/codecademy-content/programs/build-apis/projects/project-1-rock-paper-scissors-x99.zip" target="_blank">here</a>. To do this, you may either use the git command line tool
-(if you are comfortable with it) or click the green button labeled "Clone or download" at the top right of this page and select "Download zip". After downloading the zip folder, double click it to uncompress it and access the contents of this project.
 
 ## Implementation Details
 
-To complete this project, your code will need to contain the following:
+To complete this project:
 
 * Twelve global variables representing each player's move types and values (3 move types and 3 move values for each player). These variable names should be in the form of `playerOneMoveOneType`, `playerOneMoveOneValue`, etc.
 
@@ -42,12 +36,8 @@ types and values for the whole game and returns the appropriate winner (`'Player
 
 * Bonus: A function called `setComputerMoves`, which chooses three random moves for player two. The move type for each move should be completely random, and the move values should be random but add up to 99.
 
-All of your code should be written in **js/game-logic.js**.  Use the descriptions above and the testing suite (discussed below) to guide implementation of all necessary functionality.
+All of my code is written in **js/game-logic.js**. 
 
-To demo your version of the game, open **index.html** in your browser (by double clicking **index.html** in a file browser or dragging it into your Internet browser). You will be writing
-JavaScript code that uses new syntax (you will learn more about this later),
-so you will need to use the most up-to-date version of Chrome to ensure your code runs correctly. If your
-version of Chrome is too old, correctly-written code may still not run as expected.
 
 ## Testing
 
